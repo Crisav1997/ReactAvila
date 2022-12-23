@@ -1,0 +1,13 @@
+.probando{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-size: 100px;
+
+}
+.logo{
+    width: 10%;
+}
+.bgHeader{
+    background-color: aqua;
+}
