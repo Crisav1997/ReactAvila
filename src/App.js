@@ -8,10 +8,9 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 function App() {
   return (
   <div>
-  <NavBar />
-  <ItemListContainer greeting={"Hola Mundo"}/>
+    <NavBar />
+    <ItemListContainer greeting={"Hola Mundo"}/>
   </div>
-  
   );
 }
 
