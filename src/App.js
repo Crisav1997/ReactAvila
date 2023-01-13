@@ -16,7 +16,7 @@ function App() {
    <div>
      <NavBar />
      <ItemListContainer greeting={"Hola Mundo"}/>
-     <ItemCount />
+     <ItemCount onAdd={(count)=>console.log(count)} stock={10}/>
    </div>
   );
 }

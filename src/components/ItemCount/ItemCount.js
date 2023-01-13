@@ -1,26 +1,26 @@
+import { useEffect, useState } from "react"
 
-import { useState } from "react";
+const ItemCount = ({onAdd},stock) =>{
 
-const ItemCount = () =>{
-    let count=0
-    const sumar=()=>{
-        count=count + 1;
-        console.log(count)
+
+    
+const [count, setCount]= useState(0)
+    const decrement=()=> {
+        setCount(contador=>contador-1)
     }
-    const restar=()=>{
-        count=count - 1;
-        console.log(count)
+    const increment=()=> {
+        setCount(contador=>contador+1)
     }
-
     return(
         <div>
             <h1>Contador</h1>
             <h3>{count}</h3>
-            <button onClick={sumar}>+</button>
-            <button onClick={restar}>-</button>
+            <button onClick={increment}>+</button>
+            <button onClick={decrement}>-</button>
+            <button onClick={()=> onAdd(count)}>enviar</button>
         </div>
+        
     )
 }
-
 
 export default ItemCount
