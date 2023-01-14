@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import './components/NavBar/NavBar.css';
-import NavBar from './components/NavBar/NavBar';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
+import NavBar from './components/NavBar/NavBar'
 
-// import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react';
 
-// useEffect(()=>{
-// fetch()
-// },[])
 
 function App() {
   return (
-   <div>
-     <NavBar />
-     <ItemListContainer greeting={"Hola Mundo"}/>
-     <ItemCount onAdd={(count)=>console.log(count)} stock={10}/>
-   </div>
+    <div className="App"> 
+      
+        { <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting='Todos nuestro products'/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos filtrados'/>} />
+            <Route path='/detail/:productId' element={<ItemDetailContainer />} />
+          </Routes>
+         </BrowserRouter> }
+        {/* { <button onClick={() => {setShow(!show)}}>show/hide</button>
+           show && <EffectExample /> } } */}
+    </div>
   );
 }
 

@@ -1,34 +1,25 @@
-import CartWidget from "../CartWidget/CartWidget";
-import "./NavBar.css"
+import './NavBar.css';
+import { NavLink, Link } from 'react-router-dom'
+import CartWidget from '../CartWidget/CartWidget'
 
-const NavBar=()=>{
-    return(
-   <div>
-    <div class="container-fluid">
-        <div class="row bgHeader">
-        <div className="col-sm-9">
-            <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid">
-            <img src='./images/logomotor.png' className="logo" alt="logo" />
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                  <a className="nav-link active" href="#">Motores</a>
-                  <a class="nav-link active" href="#">Reductores</a>
-                  <a class="nav-link active" href="#">Sensores</a>
-                  <a class="nav-link active" href="#">Iluminacion</a>
-                </div>
-              </div>
-            </div>
-          </nav>
+import { useNavigate } from 'react-router-dom'
+
+const NavBar = () => {
+
+  const navigate = useNavigate()
+
+  return (
+    <nav className="NavBar bgHeader" >
+          <h3 onClick={() => navigate('/')}>AvilaElec</h3>
+        <div className='probando'>
+          <NavLink to={`/category/celular`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Motores</NavLink>
+          <NavLink to={`/category/tablet`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Reductores</NavLink>
+          <NavLink to={`/category/notebook`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink>
+          <NavLink to={`/category/motor`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Motores</NavLink>
         </div>
-        <CartWidget />
-    </div>
-    </div>
-    </div>
-    )
+        <CartWidget className="logo" />
+    </nav>
+  )
 }
 
-export default NavBar;
+export default NavBar

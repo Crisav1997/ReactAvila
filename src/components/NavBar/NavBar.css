@@ -1,8 +1,10 @@
 .probando{
     color: black;
     display: flex;
-    flex-direction: column;
-    font-size: 100px;
+    flex-direction: row;
+    font-size: 25px;
+    padding: 5px;
+
 
 }
 .logo{
