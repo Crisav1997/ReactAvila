@@ -12,10 +12,9 @@ const NavBar = () => {
     <nav className="NavBar bgHeader" >
           <h3 onClick={() => navigate('/')}>AvilaElec</h3>
         <div className='probando'>
-          <NavLink to={`/category/celular`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Motores</NavLink>
-          <NavLink to={`/category/tablet`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Reductores</NavLink>
-          <NavLink to={`/category/notebook`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink>
           <NavLink to={`/category/motor`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Motores</NavLink>
+          <NavLink to={`/category/reductor`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Reductores</NavLink>
+          <NavLink to={`/category/luminarias`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink>
         </div>
         <CartWidget className="logo" />
     </nav>
