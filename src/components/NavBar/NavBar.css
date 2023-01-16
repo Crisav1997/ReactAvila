@@ -8,8 +8,14 @@
 
 }
 .logo{
-    width: 5%;
+    width: 10%;
 }
 .bgHeader{
     background-color: aqua;
+}
+.flexHeader{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }

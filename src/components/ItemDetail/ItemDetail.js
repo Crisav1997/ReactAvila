@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
+import './ItemDetail.css'
 
 const InputCount = ({onConfirm, stock, initial= 1}) => {
     const [count, setCount] = useState(initial)
@@ -15,24 +16,20 @@ const InputCount = ({onConfirm, stock, initial= 1}) => {
     return (
         <div>
             <input type='number' onChange={handleChange} value={count}/>
-            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+            <button type="button" class="btn btn-light" onClick={() => onConfirm(count)}>Agregar al carrito</button>
         </div>
     )
 }
 
 const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
-
     const increment = () => {
         if(count < stock) {
             setCount(count + 1)
         }
-
     }
-
     const decrement = () => {
             setCount(count - 1)
-
     }
 
     return (
@@ -59,17 +56,14 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
     }
 
     return (
-        <article className="CardItem">
-            <button onClick={() => setInputType(inputType === 'input' ? 'button' : 'input')}>
-                Cambiar contador
-            </button>
+        <article className="CardItem ">
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}
                 </h2>
             </header>
-            <picture>
-                <img src={img} alt={name} className="ItemImg"/>
+            <picture className=''>
+                <img src={img} alt={name} className="image"/>
             </picture>
             <section>
                 <p className="Info">

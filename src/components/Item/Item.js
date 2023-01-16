@@ -4,13 +4,11 @@ const Item = ({id, name, img, price}) => {
 
     const handleOnClick = (event) => {
         event.stopPropagation()
-        console.log('hice click en item')
     }
-
     return (
         <article className="CardItem" onClick={handleOnClick}>
-            <header className="Header">
-                <h2 className="ItemHeader">
+            <header>
+                <h2 className="titleItem">
                     {name}
                 </h2>
             </header>
@@ -18,12 +16,12 @@ const Item = ({id, name, img, price}) => {
                 <img src={img} alt={name} className="image"/>
             </picture>
             <section>
-                <p className="Info">
+                <p className="priceItem">
                     Precio: ${price}
                 </p>
             </section>           
             <footer className='ItemFooter'>
-                <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
+            <button type="button" class="btn btn-light"><Link to={`/detail/${id}`} className='Option'>Ver detalle</Link></button>        
             </footer>
         </article>
     )

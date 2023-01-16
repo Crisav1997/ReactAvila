@@ -4,7 +4,7 @@ const products = [
     { id: '3', name: 'Warom', price: 1000, category: 'luminarias', img:'https://cdn.shopify.com/s/files/1/2241/3179/products/j5-fixture-warom-bat86-explosion-proof-led-flood-lights-light-fitting-atex-approved-for-zone-1-2-14312479162417_1445x.jpg?v=1621370412', stock: 10, description:'Descripcion de Ipad'},
     { id:'4', name:'Motor Weg W22',price:2500,category:'motor',img:'https://static.weg.net/medias/images/ha6/h69/MKT_WMO_MX_IMAGE_3PHASE_W22_RAL5009_143-5_B3D_NEMAPREMIUM_1200Wx1200H.jpg'},
     { id:'5', name:'Motor SEW Eurodrive',price:2400,category:'motor',img:'https://induexcedentes.com/wp-content/uploads/2020/09/mgd0306_aanbouwmotor-sew-pinl-nl.jpg'},
-    { id:'6', name:'Philips',price:800,category:'luminarias',img:'https://www.megatone.net/images/Articulos/zoom2x/333/MKT0161OBJ_8.jpg'}
+    { id:'6', name:'Philips',price:800,category:'luminarias',img:'https://www.megatone.net/images/Articulos/zoom2x/333/MKT0161OBJ_8.jpg',stock:10}
 ]
 
 
