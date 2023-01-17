@@ -1,3 +1,44 @@
 .image{
     width: 50px;
 }
+.carrito {
+    width: 10%;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+}
+
+.menuNav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.bgHead{
+    background-image:linear-gradient(lightblue,black);
+    align-items: center;
+    height: 100px;
+}
+.title{
+    font-size: 30px;
+    color: white;
+  
+}
+.flexCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cardDetail{
+    width: 18rem;
+}
+.flexDetail{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

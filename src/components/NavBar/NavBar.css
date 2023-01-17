@@ -1,21 +1,17 @@
-.probando{
-    color: black;
-    display: flex;
-    flex-direction: row;
-    font-size: 25px;
-    padding: 5px;
 
-
-}
 .logo{
     width: 10%;
 }
-.bgHeader{
-    background-color: aqua;
-}
-.flexHeader{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+
+.bgHead{
+    background-image:linear-gradient(lightblue,black);
     align-items: center;
+    height: 100px;
+}
+.menuNav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }

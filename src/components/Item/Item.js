@@ -7,22 +7,14 @@ const Item = ({id, name, img, price}) => {
     }
     return (
         <article className="CardItem" onClick={handleOnClick}>
-            <header>
-                <h2 className="titleItem">
-                    {name}
-                </h2>
-            </header>
-            <picture>
-                <img src={img} alt={name} className="image"/>
-            </picture>
-            <section>
-                <p className="priceItem">
-                    Precio: ${price}
-                </p>
-            </section>           
-            <footer className='ItemFooter'>
-            <button type="button" class="btn btn-light"><Link to={`/detail/${id}`} className='Option'>Ver detalle</Link></button>        
-            </footer>
+            <div className="card mt-2 card">
+                <img src={img} class="card-img-top sizeImage" alt={name}/>
+                <div class="card-body">
+                 <h5 class="card-title text-cente titleItem">{name}</h5>
+                <p class="card-text text-center text-primary priceItem">Precio: ${price}</p>
+                <button type="button" class="btn btn-light"><Link to={`/detail/${id}`} className='Option'>Ver detalle</Link></button>
+                </div>
+            </div>
         </article>
     )
 }
