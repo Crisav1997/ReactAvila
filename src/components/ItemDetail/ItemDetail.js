@@ -6,16 +6,32 @@ import './ItemDetail.css'
 
 const InputCount = ({onConfirm, stock, initial= 1}) => {
     const [count, setCount] = useState(initial)
-
     const handleChange = (e) => {
         if(e.target.value <= stock) {
             setCount(e.target.value)
         }
     }
+    const increment = () => {
+        if(count < stock) {
+            setCount(count + 1)
+        }
+    }
+    const decrement = () => {
+        if(count>1){
+            setCount(count - 1)
+        }
+        else{
+            setCount(1)
+        }
+           
+    }
 
     return (
         <div>
-            <input type='number' onChange={handleChange} value={count}/>
+            <button onClick={decrement}>-</button>
+            <button onClick={increment}>+</button>
+            <p>{count}</p>
+            {/* <input type='number' onChange={handleChange} value={count}/> */}
             <button type="button" class="btn btn-light" onClick={() => onConfirm(count)}>Agregar al carrito</button>
         </div>
     )
@@ -29,7 +45,10 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
         }
     }
     const decrement = () => {
+        if(count>1){
             setCount(count - 1)
+        }
+           
     }
 
     return (
@@ -56,13 +75,13 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
     }
 
     return (
-        <article className="CardItem ">
-            <header className="Header">
-                <h2 className="ItemHeader">
+        <article >
+            <header >
+                <h2 >
                     {name}
                 </h2>
             </header>
-            <picture className=''>
+            <picture>
                 <img src={img} alt={name} className="image"/>
             </picture>
             <section>
