@@ -30,7 +30,7 @@ const ItemListContainer = ({ greeting }) => {
         
     }
     return (
-        <div className='ItemListContainer bgMain'>
+        <div className='ItemListContainer bgMain' onClick={()=>console.log("hice click en itemlistContainer")}>
             <h1>{greeting}</h1>
             <ItemList products={products} />
         </div>

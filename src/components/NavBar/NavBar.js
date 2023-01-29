@@ -1,11 +1,13 @@
 import './NavBar.css';
+import { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import { useNavigate } from 'react-router-dom'
 
+import { CartContext } from '../context/CartContext';
 const NavBar = () => {
 const navigate = useNavigate()
-
+const {totalQuantity}= useContext(CartContext)
   return (
     <nav  >
       <div className='container-fluid'>
@@ -19,7 +21,7 @@ const navigate = useNavigate()
             <div className='pe-2 fs-2'><NavLink to={`/category/luminarias`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink></div>
           </div>
           <div className='col-sm-4  d-flex flex-row-reverse'>
-           <CartWidget className="logo" />
+           <CartWidget className="logo" totalQuantity={totalQuantity} />
           </div>
         </div>
       </div>

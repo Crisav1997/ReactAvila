@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom'
 
-const ItemCount =({initial=1,stock})=>{
+const ItemCount =({initial=1,stock,onAdd})=>{
     const[count,setCount]=useState(initial)
 
     const decrement=()=>{
@@ -19,7 +19,7 @@ const ItemCount =({initial=1,stock})=>{
         <h3>{count}</h3>
         <button className='btn btn-dark' onClick={decrement}>-</button>
         <button className='btn btn-dark' onClick={increment}>+</button>
-        <button className="btn btn-light"><Link to='/cart'>Terminar compra</Link></button>
+        <button className="btn btn-light" onClick={()=>onAdd(count)}>Terminar compra</button>
         
        </div> 
             
