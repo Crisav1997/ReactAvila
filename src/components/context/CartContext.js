@@ -17,16 +17,28 @@ export const CartContext = createContext()
       const isInCart=(id)=>cart.some(prod=>id===prod.id)
 
       const getTotalQuantity=()=>{
-        let accu=0;
+        let accu=0
         cart.forEach(prod=>{
-            accu+=prod.quantity
+            accu += parseInt(prod.quantity)
         })
         return accu
       }
-      const totalQuantity= getTotalQuantity
+      const clearCart = () => {
+        setCart([])
+      }
+      const getTotal=()=>{
+        let total=0
+        cart.forEach(prod=>{
+            total+=prod.quantity+prod.price
+        })
+        return total
+      }
 
+      const totalQuantity= getTotalQuantity()
+
+      const total = getTotal()
     return(
-        <CartContext.Provider value={{addItem,isInCart,totalQuantity }}>
+        <CartContext.Provider value={{cart,addItem,isInCart,totalQuantity,total,clearCart }}>
         {children}
         </CartContext.Provider>
     )

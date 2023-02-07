@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react';
 import './item.css';
 const Item = ({id, name, img, price}) => {
 
     const handleOnClick = (event) => {
         event.stopPropagation()
-    
-            console.log("CLICL en item")
-    
     }
     return (
         <article className="CardItem" onClick={handleOnClick}>

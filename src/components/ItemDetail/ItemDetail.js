@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './ItemDetail.css'
-import ItemCount from '../ItemCount/ItemCount'
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const InputCount=({onConfirm,stock,initial})=>{
     const [count , setCount]=useState(initial)
@@ -65,7 +64,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description,setCart
                   <p className="card-text text-center text-primary">Precio: ${price}</p>
                   {
                     isInCart(id)?(
-                        <button>terminar compra</button>
+                        <Link to='/cart'>Terminar compra</Link>
                     ):(
                         <ItemCount stock={stock} onConfirm={handleOnAdd}/>
                     )
