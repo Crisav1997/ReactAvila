@@ -8,22 +8,14 @@ const Forms=({onGenerate})=>{
     const [email,setEmail]=useState('')
     const [phone,setNum]=useState('')
 
-    // const handleInputChange=(e)=>{
-    //     setName(e.target.name.value)
-    // }
-
-    // const handleSubmit=(event)=>{
-    //     event.preventDefault();
-    //     const name= event.target.name.value;
-    //     console.log(name)
-
-    // }
-
     return(
         <div>
             <form onSubmit={ev=>{
                 ev.preventDefault();
-                generar(name,phone,email)
+                if((name==="")||(phone==="")||(email==="")){
+                    console.log("nombre vacio")
+                }else{
+                generar(name,phone,email)}
             }}> 
             <div class="form-group">
                 <label>Nombre</label>
