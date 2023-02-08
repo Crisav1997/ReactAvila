@@ -16,9 +16,9 @@ const NavBar = () => {
            <img className='logo' src='././images/logomotor.png'onClick={() => navigate('/')} alt='logo'/>
           </div>
           <div className='col-sm-4 menuNav'>
-            <div className='pe-2 fs-2'><NavLink to={`/category/motor`} className= {({ isActive }) => isActive ? 'ActiveOption' : 'Option'  }>Motores</NavLink></div>
-            <div className='pe-2 fs-2'><NavLink to={`/category/reductor`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Reductores</NavLink></div>
-            <div className='pe-2 fs-2'><NavLink to={`/category/luminarias`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink></div>
+            <button className='pe-2 fs-2  btn btn-success' ><NavLink to={`/category/motor`} className= {({ isActive }) => isActive ? 'ActiveOption' : 'Option'  }>Motores</NavLink></button>
+            <button className='pe-2 fs-2  btn btn-success' ><NavLink to={`/category/reductor`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Reductores</NavLink></button>
+            <button className='pe-2 fs-2  btn btn-success' ><NavLink to={`/category/luminarias`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Luminarias</NavLink></button>
           </div>
           <div className='col-sm-4  d-flex flex-row-reverse'>
            <CartWidget cuantity={totalQuantity} />

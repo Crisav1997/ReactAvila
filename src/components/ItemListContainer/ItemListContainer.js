@@ -26,20 +26,16 @@ const ItemListContainer = ({ greeting }) => {
         })
         setProducts(productsAdapted)
     }).catch(error=>{console.log(error)} 
-    ).finally(()=>{
-        setLoading(false)}
-    )
+    ).finally(()=>{setLoading(false)})
     }, [categoryId])
 
     if(loading) {
         return (<div class="bgMain">
         <div class="spinner-border text-warning text-center mt-4" role="status"></div>
         </div>)
-        
-        
     }
     return (
-        <div className='ItemListContainer bgMain' onClick={()=>console.log("hice click en itemlistContainer")}>
+        <div className='ItemListContainer bgMain'>
             <h1>{greeting}</h1>
             <ItemList products={products} />
         </div>

@@ -27,16 +27,21 @@ export const CartContext = createContext()
       const getTotal=()=>{
         let total=0
         cart.forEach(prod=>{
-            total+=prod.quantity+prod.price
+            total+=parseInt(prod.quantity)*parseInt(prod.price)
         })
         return total
       }
+
+      const removeItem=(id)=>{
+        const cartNuevo=cart.filter(prod=>prod.id !== id)
+        return setCart(cartNuevo)
+    }
 
       const totalQuantity= getTotalQuantity()
 
       const total = getTotal()
     return(
-        <CartContext.Provider value={{cart,addItem,isInCart,totalQuantity,total,clearCart }}>
+        <CartContext.Provider value={{cart,addItem,isInCart,totalQuantity,total,clearCart,removeItem }}>
         {children}
         </CartContext.Provider>
     )

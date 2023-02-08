@@ -18,8 +18,7 @@ const ItemCount =({initial=1,stock,onAdd})=>{
         <h3>{count}</h3>
         <button className='btn btn-dark' onClick={decrement}>-</button>
         <button className='btn btn-dark' onClick={increment}>+</button>
-        <button className="btn btn-light" onClick={()=>onAdd(count)}>Ter cminarompra</button>
-        
+         <button className="btn btn-light" onClick={() => onAdd(count)}>Agregar al carrito</button>
        </div> 
             
     )

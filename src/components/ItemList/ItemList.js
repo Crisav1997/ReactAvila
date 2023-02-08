@@ -1,9 +1,7 @@
-
 import Item from '../Item/Item'
 import './ItemList.css'
 
 const ItemList = ({products }) => {
-
     const handleOnClick=(event)=>{
         event.stopPropagation()
     }
