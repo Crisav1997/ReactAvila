@@ -2,7 +2,7 @@ import { collection, query, where, documentId, getDocs, writeBatch, addDoc } fro
 import { useContext, useState } from "react"
 import { CartContext } from "../context/CartContext"
 import { db } from "../../services/firebase/firebaseConfig"
-
+import Forms from "../forms/Forms"
 import { useNavigate } from "react-router-dom"
 
 const Checkout = () => {
@@ -12,14 +12,15 @@ const Checkout = () => {
 
     const navigate = useNavigate()
 
-    const createOrder = async () => {
+    const createOrder = async (name,email,phone) => {
         setLoading(true)
+       
         try {
             const objOrder = {
                 buyer: {
-                    name: 'Sebastian Zuviria',
-                    phone: '123456789',
-                    email: 'contact@sebaz.io'
+                    name,
+                    phone,
+                    email
                 },
                 items: cart,
                 total
@@ -100,8 +101,7 @@ const Checkout = () => {
 
     return (
         <div>
-            <h1>Checkout</h1>
-            <button onClick={createOrder}>Generar orden</button>
+            <Forms onGenerate={createOrder}/>
         </div>
     )
 }
