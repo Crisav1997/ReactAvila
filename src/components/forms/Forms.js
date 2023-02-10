@@ -1,4 +1,4 @@
-
+import './Forms.css'
 import { useState } from "react"
 
 const Forms=({onGenerate})=>{
@@ -9,38 +9,37 @@ const Forms=({onGenerate})=>{
     const [phone,setNum]=useState('')
 
     return(
-        <div>
+        <div className="container-fluid bgMain">
+            <div className="row">
+                <div className="col-sm-3"></div>
+                <div className="col-sm-6">
             <form onSubmit={ev=>{
                 ev.preventDefault();
                 if((name==="")||(phone==="")||(email==="")){
-                    console.log("nombre vacio")
+                    
                 }else{
                 generar(name,phone,email)}
             }}> 
-            <div class="form-group">
+            <div className="form-group mt-2">
                 <label>Nombre</label>
-                <input type="text" 
-                    class="form-control" 
-                    placeholder="Ingrese su nombre"
-                    value={name} 
-                    onChange={ev=>setName(ev.target.value)}/>
+                <input type="text" className="form-control" placeholder="Ingrese su nombre" value={name} onChange={ev=>setName(ev.target.value)}/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <label >Email</label>
-                <input type="email" class="form-control" placeholder="Ingrese su email"
-                value={email} 
-                onChange={ev=>setEmail(ev.target.value)}/>
+                <input type="email" className="form-control" placeholder="Ingrese su email"value={email} onChange={ev=>setEmail(ev.target.value)}/>
             </div>
-            <div class="form-group">
+            <div className="form-group">
             <label>Telefono</label>
-                <input type="text" class="form-control"  placeholder="Ingrese su numero de telofono" value={phone} 
-                    onChange={ev=>setNum(ev.target.value)}/>
+                <input type="text" className="form-control"  placeholder="Ingrese su numero de telofono" value={phone} onChange={ev=>setNum(ev.target.value)}/>
             </div>
-            <button type="submit" class="btn btn-primary" >Generar orden</button>
+            <button type="submit" className="btn btn-primary mt-4" >Generar orden</button>
             </form>
-           
+            </div>
+            <div className="col-sm-3"></div>
+            </div>
         </div>
 )
 
 }
+
 export default Forms

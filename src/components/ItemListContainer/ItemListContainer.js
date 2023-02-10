@@ -19,7 +19,6 @@ const ItemListContainer = ({ greeting }) => {
     ?query(collection(db,'products'),where('category','==',categoryId)) 
     :collection(db,'products')
     getDocs(collectionRef).then(response=>{
-        console.log(response)
         const productsAdapted =response.docs.map(doc=>{
             const data=doc.data()
             return{ id:doc.id, ...data}
@@ -30,8 +29,8 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     if(loading) {
-        return (<div class="bgMain">
-        <div class="spinner-border text-warning text-center mt-4" role="status"></div>
+        return (<div className="bgMain">
+        <div className="spinner-border text-warning text-center mt-4" role="status"></div>
         </div>)
     }
     return (

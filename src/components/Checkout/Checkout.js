@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom"
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
+    const [orderRej, setOrderRej] = useState(false)
     const { cart, total, clearCart } = useContext(CartContext)
 
     const navigate = useNavigate()
 
     const createOrder = async (name,email,phone) => {
         setLoading(true)
-       
         try {
             const objOrder = {
                 buyer: {
@@ -25,14 +25,9 @@ const Checkout = () => {
                 items: cart,
                 total
             }
-    
             const batch = writeBatch(db)
-    
             const ids = cart.map(prod => prod.id)
-            console.log(ids)
-    
             const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-    
             const productsAddedToCartFromFirestore = await getDocs(productsRef)
             const { docs } = productsAddedToCartFromFirestore
     
@@ -54,51 +49,51 @@ const Checkout = () => {
     
             if(outOfStock.length === 0) {
                 await batch.commit()
-    
                 const orderRef = collection(db, 'orders')
-    
                 const orderAdded = await addDoc(orderRef, objOrder)
-    
                 const { id } = orderAdded
-
                 setOrderId(id)
-
                 setTimeout(() => {
                     clearCart()
                     navigate('/')
                 }, 5000)
-                
-                console.log(id)
             } else {
-                console.error('hay productos fuera de stock')
+               console.log('hay productos fuera de stock')
+                setOrderRej(true)
+                setTimeout(() => {
+                    clearCart()
+                    navigate('/')
+                }, 5000)
             }
         } catch (error) {
             console.error(error)
+            
         } finally {
             setLoading(false)
-        }
-       
-        
+        }   
     }
-
     if(loading) {
-        return <h1>Generando orden...</h1>
+        return <h1 className="bgMain">Generando orden...</h1>
     }
-
+    if(orderRej){
+        return (<div>
+            <h1>Orden rechazada</h1>
+            <h3>Stock Agotado</h3>
+            <h4>Sera redirigido al menu principal</h4>
+            </div>)
+    }
     if(orderId) {
         return (
-            <div>
+            <div className="bgMain mt-2">
                 <h1>El Id de su compra es: {orderId}</h1>
             </div>
         )
     }
-
     if(cart.length === 0) {
         return (
-            <h1>No hay productos en el carrito</h1>
+            <h1 className="bgMain">No hay productos en el carrito</h1>
         )
     }
-
     return (
         <div>
             <Forms onGenerate={createOrder}/>

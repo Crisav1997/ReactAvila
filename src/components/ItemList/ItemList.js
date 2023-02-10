@@ -6,7 +6,7 @@ const ItemList = ({products }) => {
         event.stopPropagation()
     }
     return(
-        <div className='ListGroup flex' onClick={handleOnClick}>
+        <div className='ListGroup flexItem' onClick={handleOnClick}>
             {products.map(prod => <Item key={prod.id} {...prod} />)}
         </div>    
     )

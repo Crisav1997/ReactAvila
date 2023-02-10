@@ -4,7 +4,9 @@
     justify-content: space-around;
     align-items: center;
 }
-
 .tableS{
     width: 60%;
+}
+.bgMain{
+    background-image: linear-gradient(lightblue,white);
 }

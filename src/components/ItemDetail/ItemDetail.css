@@ -4,18 +4,15 @@
 .carrito {
     width: 10%;
 }
-
 .centrar{
     display: flex;
     justify-content: center;
 }
-
 .menuNav{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    
+    justify-content: center;  
 }
 .bgHead{
     background-image:linear-gradient(lightblue,black);
@@ -25,7 +22,6 @@
 .title{
     font-size: 30px;
     color: white;
-  
 }
 .flexCard{
     display: flex;
